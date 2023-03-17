@@ -1,0 +1,170 @@
+[
+    {
+        "label": "MDApp",
+        "importPath": "kivymd.app",
+        "description": "kivymd.app",
+        "isExtraImport": true,
+        "detail": "kivymd.app",
+        "documentation": {}
+    },
+    {
+        "label": "MDBoxLayout",
+        "importPath": "kivymd.uix.boxlayout",
+        "description": "kivymd.uix.boxlayout",
+        "isExtraImport": true,
+        "detail": "kivymd.uix.boxlayout",
+        "documentation": {}
+    },
+    {
+        "label": "ScreenManager",
+        "importPath": "kivy.uix.screenmanager",
+        "description": "kivy.uix.screenmanager",
+        "isExtraImport": true,
+        "detail": "kivy.uix.screenmanager",
+        "documentation": {}
+    },
+    {
+        "label": "StringProperty",
+        "importPath": "kivy.properties",
+        "description": "kivy.properties",
+        "isExtraImport": true,
+        "detail": "kivy.properties",
+        "documentation": {}
+    },
+    {
+        "label": "NumericProperty",
+        "importPath": "kivy.properties",
+        "description": "kivy.properties",
+        "isExtraImport": true,
+        "detail": "kivy.properties",
+        "documentation": {}
+    },
+    {
+        "label": "BooleanProperty",
+        "importPath": "kivy.properties",
+        "description": "kivy.properties",
+        "isExtraImport": true,
+        "detail": "kivy.properties",
+        "documentation": {}
+    },
+    {
+        "label": "MDListBottomSheet",
+        "importPath": "kivymd.uix.bottomsheet",
+        "description": "kivymd.uix.bottomsheet",
+        "isExtraImport": true,
+        "detail": "kivymd.uix.bottomsheet",
+        "documentation": {}
+    },
+    {
+        "label": "MDBottomSheet",
+        "importPath": "kivymd.uix.bottomsheet",
+        "description": "kivymd.uix.bottomsheet",
+        "isExtraImport": true,
+        "detail": "kivymd.uix.bottomsheet",
+        "documentation": {}
+    },
+    {
+        "label": "MDSmartTile",
+        "importPath": "kivymd.uix.imagelist",
+        "description": "kivymd.uix.imagelist",
+        "isExtraImport": true,
+        "detail": "kivymd.uix.imagelist",
+        "documentation": {}
+    },
+    {
+        "label": "MDLabel",
+        "importPath": "kivymd.uix.label",
+        "description": "kivymd.uix.label",
+        "isExtraImport": true,
+        "detail": "kivymd.uix.label",
+        "documentation": {}
+    },
+    {
+        "label": "MDScreen",
+        "importPath": "kivymd.uix.screen",
+        "description": "kivymd.uix.screen",
+        "isExtraImport": true,
+        "detail": "kivymd.uix.screen",
+        "documentation": {}
+    },
+    {
+        "label": "MDCardSwipe",
+        "importPath": "kivymd.uix.card",
+        "description": "kivymd.uix.card",
+        "isExtraImport": true,
+        "detail": "kivymd.uix.card",
+        "documentation": {}
+    },
+    {
+        "label": "les_noms",
+        "kind": 6,
+        "importPath": "message",
+        "description": "message",
+        "peekOfCode": "class les_noms():\n    noms = \"\"\n    nb_message = 0\n    message  = \"\"\n    vue = True\n    def __init__ (self,nom,message,nb_message,vue):\n        self.nom = nom \n        self.message = message\n        self.nb_message = nb_message\n        self.vue = vue",
+        "detail": "message",
+        "documentation": {}
+    },
+    {
+        "label": "MenuPrincipale",
+        "kind": 6,
+        "importPath": "message",
+        "description": "message",
+        "peekOfCode": "class MenuPrincipale(MDBoxLayout):\n    screen_stack = []\n    right_action = []\n    titres = []\n    titre_de_bar = StringProperty()\n    noms = \"NOSSI\"\n    message = StringProperty()\n    mon_Nom = []\n    icon_left_action =  BooleanProperty()\n    def __init__(self, **kwargs):",
+        "detail": "message",
+        "documentation": {}
+    },
+    {
+        "label": "LesNoms",
+        "kind": 6,
+        "importPath": "message",
+        "description": "message",
+        "peekOfCode": "class LesNoms(MDBoxLayout):\n    nom = StringProperty()\n    nb_message = NumericProperty()\n    message = StringProperty()\n    vue = BooleanProperty()\nclass Menulist(MDCardSwipe):\n    mon_Nom = []\n    nom = StringProperty()\n    nb_message = NumericProperty()\n    message = StringProperty()",
+        "detail": "message",
+        "documentation": {}
+    },
+    {
+        "label": "Menulist",
+        "kind": 6,
+        "importPath": "message",
+        "description": "message",
+        "peekOfCode": "class Menulist(MDCardSwipe):\n    mon_Nom = []\n    nom = StringProperty()\n    nb_message = NumericProperty()\n    message = StringProperty()\n    vue = BooleanProperty()\n    def __init__(self, **kwargs):\n        super().__init__(**kwargs)\nclass Menumessage(MDBoxLayout):\n    les_message = [ \"salut\",\"bonsoir \",\"cc\",\"hello\",\"comment ?\",\"sa va\" ,\"cc\",\"cc\",\"bonjour\",\"bonjour bonjour\" ,\"et la famille\",\"ils vont bien\" ]",
+        "detail": "message",
+        "documentation": {}
+    },
+    {
+        "label": "Menumessage",
+        "kind": 6,
+        "importPath": "message",
+        "description": "message",
+        "peekOfCode": "class Menumessage(MDBoxLayout):\n    les_message = [ \"salut\",\"bonsoir \",\"cc\",\"hello\",\"comment ?\",\"sa va\" ,\"cc\",\"cc\",\"bonjour\",\"bonjour bonjour\" ,\"et la famille\",\"ils vont bien\" ]\n    les_messages = []\n    s = []\n    def __init__(self, *args, **kwargs):\n        super().__init__(*args, **kwargs)\n        for i in self.les_message :\n            self.s.append(i) \n        self.les_messages = self.s\nclass MyScreenManager(ScreenManager):",
+        "detail": "message",
+        "documentation": {}
+    },
+    {
+        "label": "MyScreenManager",
+        "kind": 6,
+        "importPath": "message",
+        "description": "message",
+        "peekOfCode": "class MyScreenManager(ScreenManager):\n    screen_stack = []\n    texte = StringProperty()\n    texte = \"bonjour\"\n    def __init__(self, **kwargs):\n        super().__init__(**kwargs)\n        self.text = self.texte\n    def push(self, screen_name):\n        if screen_name not in self.screen_stack:\n            self.screen_stack.append(self.current)",
+        "detail": "message",
+        "documentation": {}
+    },
+    {
+        "label": "BoxLayoutWithActionBar",
+        "kind": 6,
+        "importPath": "message",
+        "description": "message",
+        "peekOfCode": "class BoxLayoutWithActionBar(MDBoxLayout):\n    title = StringProperty()\nclass MessagesApp(MDApp):\n    screen_stack = []\n    def __init__(self, **kwargs):\n        super().__init__(**kwargs)\n        self.theme_cls.theme_style = 'Light'\n        self.theme_cls.primary_palette = \"Blue\"\nMessagesApp().run()",
+        "detail": "message",
+        "documentation": {}
+    },
+    {
+        "label": "MessagesApp",
+        "kind": 6,
+        "importPath": "message",
+        "description": "message",
+        "peekOfCode": "class MessagesApp(MDApp):\n    screen_stack = []\n    def __init__(self, **kwargs):\n        super().__init__(**kwargs)\n        self.theme_cls.theme_style = 'Light'\n        self.theme_cls.primary_palette = \"Blue\"\nMessagesApp().run()",
+        "detail": "message",
+        "documentation": {}
+    }
+]

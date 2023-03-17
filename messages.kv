@@ -1,0 +1,231 @@
+
+
+#:import utils kivy.utils
+#:set color1 "#FFFFFF"
+#:set color2 "#5555cA"
+#:set color3 "#333333"
+
+MenuPrincipale:
+    mon_Nom:mon_Nom
+    #yScreen:yScreen
+    id:Principale
+    orientation:"vertical"
+    MDBoxLayout:
+        size_hint_y:None
+        height:dp(85)
+        canvas:
+            Color:
+                rgb:.53,.53,.53
+            Rectangle:
+                size:self.size
+                pos:self.pos
+                #radius:[dp(0),dp(0),dp(20),dp(20)]
+        MDScreen:
+            MDIconButton:
+                icon: "menu"  if root.icon_left_action  else "chevron-left"
+                pos_hint: {"center_x": .02, "center_y": .5}
+                on_release:myScreen.pop(),app.root.suprimer ()
+                theme_icon_color: "Custom"
+                icon_color: "#FFFFFF" 
+            Label:
+                text:root.titre_de_bar
+                pos_hint: {"center_x": .3, "center_y": .2}
+                font_size:dp(30)
+            MDIconButton:
+                icon:"account"  if root.icon_left_action  else  ""
+                pos_hint: {"center_x": .92, "center_y": .5}
+                theme_icon_color: "Custom"
+                icon_color: "#FFFFFF" 
+            MDIconButton:
+                icon: "dots-vertical"
+                pos_hint: {"center_x": .98, "center_y": .5}
+                theme_icon_color: "Custom"
+                icon_color: "#FFFFFF" 
+
+            
+    MyScreenManager:
+        myScreen:myScreen
+        #Menulist:Menulist
+        #menumessage:nom1
+        id:myScreen
+        
+        #Menumessage:Menumessage
+        Screen:
+            name:"Menulist"
+            
+            Menulist:
+            RecycleView:
+                id: mon_Nom
+                viewclass : 'Menulist'
+                RecycleBoxLayout:
+                    default_size: None, dp(56)
+                    default_size_hint: 1, None
+                    size_hint_y: None
+                    height: self.minimum_height
+                    orientation: 'vertical'
+                    spacing:dp(1)
+                    canvas:
+                        Color:
+                            rgb : 1,1,1
+                        Rectangle:
+                            size:self.size
+        Screen:
+            name:"Menumessage"
+            Menumessage:
+            
+
+<MoisMessage@BoxLayout>:
+    id:bt
+    canvas:
+        Color:
+            rgb : .3,.3,.7
+        RoundedRectangle:
+            pos:self.pos
+            size:self.size
+            radius:[dp(20),dp(20),dp(20),dp(20)]
+    Label:
+        text:str(bt.parent.les_messages)
+        
+    
+                        
+
+<Menumessage>:
+    les_messages:les_messages
+    id:mess
+    orientation:"vertical"
+    canvas:
+        Color:
+            rgb:.9,.1,.1
+        Rectangle:
+            size:self.size
+            pos:self.pos
+    RecycleView:
+        id: les_messages
+        viewclass : 'MoisMessage'
+        RecycleBoxLayout:
+            default_size: None, dp(56)
+            default_size_hint: 1, None
+            size_hint_y: None
+            height: self.minimum_height
+            orientation: 'vertical'
+            spacing:dp(1)
+    MoisMessage:
+    MDBoxLayout:
+
+        size_hint_y:None
+        height:dp(45)
+
+        canvas:
+            Color:
+                rgb:.53,.53,.53
+            RoundedRectangle:
+                size:self.size
+                pos:self.pos
+                radius:[dp(20),dp(20),dp(0),dp(0)]
+        MDTextField:
+            hint_text: "Round mode"
+            mode: "round"
+            multiline: True
+            pos_hint:{"center_x":.5,"center_y":.5}
+            padding_y:dp(120)
+            
+
+
+
+
+<ButtonRond@Button>:
+    id:bt
+    canvas:
+        Color:
+            rgb:.9,.1,.1
+        Ellipse:
+            pos: self.pos
+            size: 40,40
+    FitLabel:
+        text:bt.parent.nom
+
+        
+        
+
+
+
+
+
+<Menulist>:
+    
+    id : sat
+    size_hint_y: None
+    #height: content.height
+    anchor: "left"
+    type_swipe: "hand"
+    MDCardSwipeLayerBox:
+        canvas:
+            Color:
+                rgb : .3,.3,.3
+            RoundedRectangle:
+                size:self.size
+                pos:self.pos
+        MDTextButton:
+            text: "Lue"
+            color:"#0000ff"
+            pos_hint: {"center_y": .5}
+            padding_x:dp(40)
+        # Content under the card.
+
+    MDCardSwipeFrontBox:
+        canvas:
+            Color:
+                rgb : utils.get_color_from_hex(color3) 
+            RoundedRectangle:
+                size:self.size
+                pos:self.pos
+                
+        
+        
+        # Content of card.
+        OneLineListItem:
+            
+            id : sa
+            #_no_ripple_effect: True
+            on_release:sat.parent.parent.parent.parent.push("Menumessage"),app.root.push(root.nom)
+
+            MDBoxLayout:
+                orientation:"vertical"
+                padding:dp(3)
+                pos:sa.pos
+                canvas:
+                    Color:
+                        rgb : utils.get_color_from_hex(color3) 
+                    RoundedRectangle:
+                        size:self.size
+                        pos:self.pos
+                MDBoxLayout:
+                    Label:
+                        text:root.nom
+                        color: utils.get_color_from_hex(color1)
+                    Label:
+                        text:str(root.nb_message)
+                        
+                        color:"#0000ff"
+                        text_size: self.size
+                        halign: "right"
+                        valign: "center"
+                        padding:[dp(10),dp(10)]
+                MDBoxLayout:
+                    canvas:
+                        Color:
+                            rgb : utils.get_color_from_hex(color3) if root.vue else utils.get_color_from_hex(color2)
+                        RoundedRectangle:
+                            size:self.size
+                            pos:self.pos
+                            radius:[dp(15),dp(15),dp(15),dp(15)]
+                    Label:
+                        text:root.message
+                        padding:[dp(50),dp(10)]
+                        color:  "#ffffff"
+                        text_size: self.size
+                        halign: "right"
+                        valign: "center"
+            
+
+        
